@@ -10,6 +10,7 @@
 
 body {
     font-size: 15pt;
+    font-family: sans-serif;
 }
 
 section, header, footer {
@@ -30,6 +31,21 @@ header {
 }
 nav {
   display: none;
+  /*background: #000;*/
+  flex: 2;
+  justify-content: space-between;
+  grid-gap: 5em;
+}
+.nav {
+  display: flex;
+  list-style: none;
+  /*background: red;*/
+  justify-content: space-around;
+  /*flex: 1;*/
+  grid-gap: 3em;
+}
+.logo {
+  flex: 1;
 }
 .ham {
   height: 40px;
@@ -38,11 +54,20 @@ nav {
   align-self: flex-end;
   
 }
-button {
+.button {
   background: blue;
   border: none;
   outline: none;
   padding: 10px 30px;
+}
+.buttonRound {
+  background: blue;
+  border: none;
+  outline: none;
+  /*padding: 10px;*/
+  height: 3em;
+  width: 3em;
+  border-radius: 50px;
 }
 
 .hero {
@@ -55,21 +80,38 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  grid-gap: 1em;
   
 }
-
+.welcomeText {
+  font-size: 0.9em;
+  margin-left: 3em;
+}
 .ctas,
 .heroStats {
   display: flex;
+  grid-gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+.heroStatsDot {
+  content: "";
+  width: 30px;
+  height: 30px;
+  background: blue;
+  display: flex;
+  border-radius: 40px;
   grid-gap: 20px;
 }
 .heroImg {
   height: 25em;
   width: 25em;
-  background: #111;
+  /*background: #111;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .heroImgStats {
@@ -79,10 +121,21 @@ button {
   align-items: center;
   padding: 10px;
   background: #555;
+  position: relative;
+  left: -3em;
+  z-index: -1;
+  top: -0.6em;
 }
-
+.heroPic {
+  box-shadow: 1px 1px 0px #000;
+  flex: 1;
+  position: relative;
+  border: 1px solid red;
+  }
 .nftGrid {
+  grid-gap: 2em;
   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   
 }
 .nft {
@@ -94,17 +147,54 @@ button {
   padding: 10px;
   position: relative;
   background: #555;
+  padding-top: 1.7em;
 }
 .nftBadge {
   position: absolute;
   right: 0;
-  top: 20px;
-  padding: 20px;
+  top: 3px;
+  padding: 3px;
   background: #000;
 }
 .nftImg {
   padding: 30px;
+  flex: 1;
+  align-self: stretch;
+  background: #000;
+  border-radius: 10px;
 }
 .nftDetail {
   padding: 10px;
 }
+
+
+
+
+/*  MEDIA QUERIES*/
+
+
+
+
+
+  @media (min-width: 640px) {
+    .hero {
+      flex-direction: row;
+    }
+    .heroText {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+      width: 60%;
+      padding-right: 5em;
+      /*background: #ccc;*/
+    }
+    nav {
+      display: flex;
+    }
+    .ham {
+      display: none;
+    }
+    .heroStats {
+      align-self: center;
+    }
+  }
